@@ -580,7 +580,15 @@ input[type="date"] {
     border-radius: 10px;
     color: white;
     font-size: 1rem;
+    text-align: left;
     transition: border-color 0.2s;
+}
+
+input[type="date"]::-webkit-date-and-time-value,
+input[type="time"]::-webkit-date-and-time-value,
+input[type="date"]::-webkit-datetime-edit,
+input[type="time"]::-webkit-datetime-edit {
+    text-align: left;
 }
 
 input[type="text"]:focus,
@@ -1192,7 +1200,7 @@ input[type="date"]:focus {
     font-size: 1.25rem;
     cursor: pointer;
     box-shadow: 0 12px 24px rgba(15, 23, 42, 0.4);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
     z-index: 200;
 }
 
@@ -1203,6 +1211,12 @@ input[type="date"]:focus {
 
 .fab:active {
     transform: translateY(0);
+}
+
+.modal-overlay.active~.fab {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.94);
 }
 
 @media (max-width: 600px) {
