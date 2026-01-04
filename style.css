@@ -505,6 +505,8 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    box-sizing: border-box;
     z-index: 100;
     opacity: 0;
     pointer-events: none;
@@ -1186,8 +1188,8 @@ input[type="date"]:focus {
 /* Floating Action Button */
 .fab {
     position: fixed;
-    right: 28px;
-    bottom: 28px;
+    right: calc(28px + env(safe-area-inset-right));
+    bottom: calc(28px + env(safe-area-inset-bottom));
     width: 56px;
     height: 56px;
     border-radius: 50%;
@@ -1221,8 +1223,8 @@ input[type="date"]:focus {
 
 @media (max-width: 600px) {
     .fab {
-        right: 18px;
-        bottom: 18px;
+        right: calc(18px + env(safe-area-inset-right));
+        bottom: calc(18px + env(safe-area-inset-bottom));
         width: 52px;
         height: 52px;
     }
