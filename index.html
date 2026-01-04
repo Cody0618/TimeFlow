@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimeFlow - 您的智能時間助理</title>
+    <meta name="description" content="一個美麗、現代的時間安排工具，幫助您掌控每一天。">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="app-container">
+        <header>
+            <div class="header-left">
+                <button class="menu-btn" id="menuToggle" aria-label="開啟選單">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <div class="logo">
+                    <i class="fa-solid fa-hourglass-half"></i>
+                    <h1>TimeFlow</h1>
+                </div>
+            </div>
+            <div class="date-display" id="currentDate">
+                <!-- Date will be injected here -->
+            </div>
+        </header>
+
+        <main>
+            <div class="timeline-container" id="timelineSection">
+                <div class="timeline-header">
+                    <div class="timeline-title">
+                        <h2>行程</h2>
+                        <span class="timeline-date-label" id="scheduleDateLabel"></span>
+                    </div>
+                    <div class="timeline-actions">
+                        <div class="date-filter">
+                            <button class="date-chip" id="todayChip" type="button">今天</button>
+                            <button class="date-chip" id="tomorrowChip" type="button">明天</button>
+                            <input type="date" id="taskDateFilter" aria-label="選擇行程日期">
+                        </div>
+                        <button id="addTaskBtn" class="btn-primary">
+                            <i class="fa-solid fa-plus"></i> 新增事項
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="timeline" id="timeline">
+                    <!-- Tasks will be injected here -->
+                    <div class="empty-state" id="emptyState">
+                        <i class="fa-regular fa-calendar-check"></i>
+                        <p>這一天還沒有安排行程，開始規劃吧！</p>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="taskModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>新增行程</h3>
+                <button class="close-btn" id="closeModalBtn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <form id="taskForm">
+                <div class="form-group">
+                    <label for="taskTitle">標題</label>
+                    <input type="text" id="taskTitle" placeholder="例如：晨間會議" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="taskDate">行程日期</label>
+                    <input type="date" id="taskDate" required>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="startTime">開始時間</label>
+                        <input type="time" id="startTime" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="endTime">結束時間</label>
+                        <input type="time" id="endTime" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="taskColor">標籤顏色</label>
+                    <div class="color-options">
+                        <input type="radio" name="color" value="blue" id="color-blue" checked>
+                        <label for="color-blue" class="color-circle blue"></label>
+                        
+                        <input type="radio" name="color" value="purple" id="color-purple">
+                        <label for="color-purple" class="color-circle purple"></label>
+                        
+                        <input type="radio" name="color" value="pink" id="color-pink">
+                        <label for="color-pink" class="color-circle pink"></label>
+                        
+                        <input type="radio" name="color" value="orange" id="color-orange">
+                        <label for="color-orange" class="color-circle orange"></label>
+                        
+                        <input type="radio" name="color" value="green" id="color-green">
+                        <label for="color-green" class="color-circle green"></label>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn-secondary" id="cancelBtn">取消</button>
+                    <button type="submit" class="btn-primary">確認新增</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <button class="fab" id="fabAddTask" aria-label="新增行程">
+        <i class="fa-solid fa-plus"></i>
+    </button>
+
+    <div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
+    <nav class="side-menu" id="sideMenu" aria-label="主選單">
+        <div class="side-menu-header">
+            <h3>TimeFlow</h3>
+            <button class="menu-close" id="menuClose" aria-label="關閉選單">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <a class="menu-link" href="#timelineSection">時間規劃</a>
+        <a class="menu-link" href="diary.html">日記</a>
+        <a class="menu-link" href="goals.html">年度目標</a>
+    </nav>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimeFlow - 年度目標</title>
+    <meta name="description" content="建立與追蹤你的年度目標。">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="app-container">
+        <header>
+            <div class="header-left">
+                <button class="menu-btn" id="menuToggle" aria-label="開啟選單">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <div class="logo">
+                    <i class="fa-solid fa-hourglass-half"></i>
+                    <h1>TimeFlow</h1>
+                </div>
+            </div>
+            <div class="date-display" id="currentDate">
+                <!-- Date will be injected here -->
+            </div>
+        </header>
+
+        <main>
+            <section class="goals-container" id="goalsSection" aria-label="年度目標">
+                <div class="goals-header">
+                    <h2>年度目標</h2>
+                    <span class="goals-subtitle">設定想完成的目標，逐步打勾完成</span>
+                </div>
+                <form class="goals-form" id="goalsForm">
+                    <input type="text" id="goalTitle" placeholder="例如：完成一次馬拉松" required>
+                    <button class="btn-primary" type="submit">
+                        <i class="fa-solid fa-plus"></i> 新增目標
+                    </button>
+                </form>
+                <div class="goals-list" id="goalsList">
+                    <div class="empty-state" id="goalsEmpty">
+                        <i class="fa-regular fa-star"></i>
+                        <p>還沒有設定年度目標，開始規劃吧！</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
+    <nav class="side-menu" id="sideMenu" aria-label="主選單">
+        <div class="side-menu-header">
+            <h3>TimeFlow</h3>
+            <button class="menu-close" id="menuClose" aria-label="關閉選單">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <a class="menu-link" href="index.html">時間規劃</a>
+        <a class="menu-link" href="diary.html">日記</a>
+        <a class="menu-link" href="#goalsSection">年度目標</a>
+    </nav>
+
+    <script src="app.js"></script>
+</body>
+</html>
